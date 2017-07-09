@@ -32,8 +32,8 @@ namespace SplitLib.Services
                     var strategy = new iTextSharp.text.pdf.parser.SimpleTextExtractionStrategy();
                     var currentText = iTextSharp.text.pdf.parser.PdfTextExtractor.GetTextFromPage(reader, page, strategy);
 
-                    var content = Encoding.UTF8.GetString(Encoding.Convert(Encoding.Default, Encoding.UTF8, Encoding.Default.GetBytes(currentText)));
-                    var paystub = FindPayStubMatch(content);
+      
+                    var paystub = FindPayStubMatch(currentText);
                     if (paystub == null) continue;
 
                     //write this individual page into a temp file
